@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::prefix('v1')->group(function () {
+Route::prefix('version1')->namespace('App\Http\Controllers\Api\Version1')->group(function () {
     Route::apiResource('customers', CustomerController::class);
-    Route::apiResource('invoices', InvoicesController::class);
+    Route::apiResource('invoices', InvoiceController::class);
 });
