@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\Version1;
 
 use App\Models\Invoices;
 use App\Http\Controllers\Controller;
