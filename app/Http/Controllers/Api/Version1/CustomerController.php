@@ -14,9 +14,19 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new CustomerCollection (Customer::paginate());
+        $filter = new CustomerQuery();
+        $queryItems = $filter->transform($request); // ['column', 'operator', 'value']
+
+        if($queryItems == 0){
+            return new CustomerCollection(Customer::paginate());
+        }else{
+            return new CustomerCollection(Customer::where($queryItems)->paginate());
+        }
+
+        
+        
     }
 
     /**
