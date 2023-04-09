@@ -8,6 +8,7 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Http\Resources\version1\CustomerResource;
 use App\Http\Resources\version1\CustomerCollection;
+use App\Services\version1;
 
 class CustomerController extends Controller
 {
