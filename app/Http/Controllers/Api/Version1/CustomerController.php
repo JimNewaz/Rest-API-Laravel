@@ -8,7 +8,8 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Http\Resources\version1\CustomerResource;
 use App\Http\Resources\version1\CustomerCollection;
-use App\Services\version1;
+use App\Services\Version1\CustomerQuery;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -24,9 +25,7 @@ class CustomerController extends Controller
             return new CustomerCollection(Customer::paginate());
         }else{
             return new CustomerCollection(Customer::where($queryItems)->paginate());
-        }
-
-        
+        }      
         
     }
 

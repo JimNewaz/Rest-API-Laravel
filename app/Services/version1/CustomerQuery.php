@@ -1,8 +1,9 @@
 <?php 
 
-namespace App\Services\version1;
+namespace App\Services\Version1;
 
 use Illuminate\Http\Request;
+
 
 
 class CustomerQuery{
@@ -29,7 +30,7 @@ class CustomerQuery{
     public function transform(Request $request){
         $eloQuery = [];
 
-        foreach($this->$safeParams as $parm => $operators){
+        foreach($this->safeParams as $parm => $operators){
             $query = $request->query($parm);
 
             if(!isset($query)){
@@ -40,7 +41,7 @@ class CustomerQuery{
 
             foreach($operators as $operator){
                 if(isset($query[$operator])){
-                    $eloQuery[] = [$column, $this->operatorMap($operator), $query[$operator]];
+                    $eloQuery[] = [$column, $this->operatorMap[$operator], $query[$operator]];
                 }
             }
         }
