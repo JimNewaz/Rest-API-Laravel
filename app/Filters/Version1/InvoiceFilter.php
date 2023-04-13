@@ -1,12 +1,13 @@
 <?php 
 
-namespace App\Services\Version1;
+namespace App\Filters\Version1;
 
+use App\Filters\ApiFilters;
 use Illuminate\Http\Request;
 
 
 
-class CustomerQuery{
+class InvoiceFilter extends ApiFilters{
     protected $safeParams = [
         'name' => ['eq'],
         'type'=> ['eq'],
